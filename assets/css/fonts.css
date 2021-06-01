@@ -1,2 +1,14 @@
-/* 'Anton' and 'Manrope' */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200;300;400&display=swap');
+@font-face {
+    font-family: 'Hestina';
+    src: url('../css/fonts/Hestina.otf');
+}
+
+@font-face {
+    font-family: 'Anton';
+    src: url('../css/fonts/Anton-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('../css/fonts/Manrope-Light.ttf');
+}
