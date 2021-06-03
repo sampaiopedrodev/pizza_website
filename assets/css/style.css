@@ -58,6 +58,36 @@ header nav li a:hover{
     color: #FF9E19;
 }
 
+/*************************************************
+	Botão para abrir e fechar menu animado 
+*************************************************/
+#btn-menu{
+	padding: 0 4px;
+	cursor: pointer;
+    display: none;
+}
+
+#btn-menu [class*="_"]{
+	display: block;
+    width: 30px;
+	height: 2px /*3px*/;
+    margin: 5px 0px;
+	background: #EBEAE3;
+	transition: all .35s;
+}
+
+.btnMenuActive ._1{
+	transform: translateY(7px) rotate(45deg);
+}
+
+.btnMenuActive ._2{
+	opacity: 0;
+}
+
+.btnMenuActive ._3{
+	transform: translateY(-7px) rotate(-45deg);
+}
+
 
 
 
@@ -69,6 +99,17 @@ header nav li a:hover{
     background-color: #E52818;
 }
 
+.hero::before{
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 90px);
+    background-image: url('../images/pizza-on-tray.png');
+    background-repeat: no-repeat;
+    background-size: 750px;
+    background-position: -100px 30px;
+}
+
 .hero ._1{
     flex: 1.5!important;
 }
@@ -77,6 +118,7 @@ header nav li a:hover{
 .hero ._2{
     flex: 1;
     position: relative;
+    height: 100%;
 }
 
 .hero ._1{
@@ -102,7 +144,7 @@ header nav li a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 100px;
+    padding-right: 10%;
     padding-left: 50px;
 }
 
@@ -163,4 +205,68 @@ header nav li a:hover{
 
 .hero ._2 .follow-us a img{
     width: 25px;
+}
+
+@media(max-width: 670px){
+    header{
+        padding: 0 10%!important;
+    }
+    
+    header #btn-menu{
+        display: block;
+    }
+
+    header nav{
+        position: absolute;
+        display: none;
+    }
+
+    header nav ul{
+        flex-direction: column;
+    }
+    
+    .hero{
+        height: 100vh;
+    }
+    
+    .hero ._1{
+        display: none;
+    }
+
+    .hero::before{
+        background-size: 300px!important;
+        background-position: -100px 300px!important;
+    }
+
+    .hero ._2{
+        flex: 2;
+        padding: 0 10%;
+    }
+}
+
+@media(max-width: 992px){
+    header{
+        padding: 0 5%;
+    }
+    
+    .hero::before{
+        background-size: 600px;
+        background-position: -100px 30px;
+    }
+
+    .hero ._2{
+        flex: 2;
+        padding-right: 6%;
+    }
+}
+
+@media(max-width: 1200px){
+    header{
+        padding: 0 4%;
+    }
+
+    .hero ._2{
+        /* flex: 2; */
+        padding-right: 4%;
+    }
 }
