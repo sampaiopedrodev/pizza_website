@@ -226,7 +226,8 @@ header nav li a:hover{
     }
     
     .hero{
-        height: 100vh;
+        height: calc(100vh - 10px);
+        overflow: hidden;
     }
     
     .hero ._1{
@@ -234,13 +235,19 @@ header nav li a:hover{
     }
 
     .hero::before{
+        height: calc(100vh - 10px);
         background-size: 300px!important;
-        background-position: -100px 300px!important;
+        background-position: 200px 60vh!important;
     }
 
     .hero ._2{
         flex: 2;
         padding: 0 10%;
+        justify-content: space-evenly;
+    }
+
+    .hero ._2 .follow-us{
+        position: sticky;
     }
 }
 
