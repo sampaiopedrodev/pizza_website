@@ -1,4 +1,3 @@
-/* reset css */
 *{margin: 0; padding: 0; font-size: 100%; box-sizing: border-box;}
 
 html,body{ height: 100%; }
@@ -14,11 +13,14 @@ ul { list-style: none; }
 
 
 
-/* header */
+/*********************
+    header
+*********************/
 header{
     width: 100%;
-    height: 90px;
+    height: 100px;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     background-color: #E52818;
@@ -40,6 +42,40 @@ header .logo a{
     font-size: 2.4em;
 }
 
+#btn-menu{
+	padding: 0 4px;
+	cursor: pointer;
+    background: #FF9E19;
+    padding: 10px 11px;
+    border-radius: 50%;
+}
+
+#btn-menu > div{
+	display: block;
+    width: 23px;
+	height: 3px;
+    margin: 4px 0px;
+	background: #E52818;
+	transition: all .35s;
+    border-radius: 100px;
+}
+
+.btnMenuActive ._1{
+	transform: translateY(7px) rotate(45deg);
+}
+
+.btnMenuActive ._2{
+	opacity: 0;
+}
+
+.btnMenuActive ._3{
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+header nav{
+    display: none;
+}
+
 header nav ul{
     display: flex;
 }
@@ -58,56 +94,44 @@ header nav li a:hover{
     color: #FF9E19;
 }
 
-/*************************************************
-	Botão para abrir e fechar menu animado 
-*************************************************/
-#btn-menu{
-	padding: 0 4px;
-	cursor: pointer;
-    display: none;
+@media(min-width: 690px){
+    header{
+        flex-direction: row;
+        padding: 0 8%;
+    }
+    
+    #btn-menu{
+        display: none;
+    }
+
+    header nav{
+        display: block;
+    }
 }
 
-#btn-menu [class*="_"]{
-	display: block;
-    width: 30px;
-	height: 2px /*3px*/;
-    margin: 5px 0px;
-	background: #EBEAE3;
-	transition: all .35s;
-}
-
-.btnMenuActive ._1{
-	transform: translateY(7px) rotate(45deg);
-}
-
-.btnMenuActive ._2{
-	opacity: 0;
-}
-
-.btnMenuActive ._3{
-	transform: translateY(-7px) rotate(-45deg);
-}
-
-
-
-
-
-/* .hero */
+/*********************
+    .hero
+*********************/
 .hero{
-    height: calc(100vh - 90px);
+    height: 600px;
     display: flex;
+    flex-direction: column;
     background-color: #E52818;
+    overflow: hidden;
+    position: relative;
+    padding-top: 40px;
 }
 
 .hero::before{
     content: "";
     position: absolute;
     width: 100vw;
-    height: calc(100vh - 90px);
+    height: 100%;
     background-image: url('../images/pizza-on-tray.png');
     background-repeat: no-repeat;
-    background-size: 750px;
-    background-position: -100px 30px;
+    background-size: 500px;
+    background-position: -230px 280px;
+    overflow: hidden;
 }
 
 .hero ._1{
@@ -125,12 +149,6 @@ header nav li a:hover{
     overflow: hidden!important;
 }
 
-.hero ._1 .pizza{
-    position: absolute;
-    top: 50px;
-    left: -50px;
-}
-
 .hero ._1 .motoboy{
     width: 220px;
     z-index: 1001;
@@ -144,15 +162,15 @@ header nav li a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 10%;
-    padding-left: 50px;
+    padding: 0 9%;
 }
 
 .hero ._2 h1{
     color: #EBEAE3;
     font-family: "Anton", sans-serif;
-    font-size: 3em;
+    font-size: 2.8em;
     text-transform: uppercase;
+    line-height: 1.4;
 }
 
 .hero ._2 h1 span{
@@ -162,7 +180,7 @@ header nav li a:hover{
 .hero ._2 .large-text{
     color: #EBEAE3;
     font-family: "Manrope";
-    font-size: 1.1em;
+    font-size: .95em;
 }
 
 .hero ._2 .btn{
@@ -178,7 +196,6 @@ header nav li a:hover{
     padding: 10px 20px;
     margin: 15px 0;
     max-width: 202px;
-    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 .hero ._2 .btn img{
@@ -207,73 +224,86 @@ header nav li a:hover{
     width: 25px;
 }
 
-@media(max-width: 670px){
-    header{
-        padding: 0 10%!important;
+.hero ._2 .motoboy{
+    display: none;
+}
+
+@media(max-width: 690px){
+    .hero ._2 {
+        justify-content: flex-start;
     }
     
-    header #btn-menu{
-        display: block;
+    .hero ._2 .btn{
+        align-self: flex-end;
+        border-radius: 20px;
+        padding: 12px 18px;
+        font-size: 1.05em;
+        border: 2px solid black;
     }
 
-    header nav{
-        position: absolute;
+    .follow-us{
         display: none;
     }
 
-    header nav ul{
-        flex-direction: column;
-    }
-    
-    .hero{
-        height: calc(100vh - 10px);
-        overflow: hidden;
-    }
-    
     .hero ._1{
         display: none;
     }
 
-    .hero::before{
-        height: calc(100vh - 10px);
-        background-size: 300px!important;
-        background-position: 200px 60vh!important;
+    .hero ._2 .motoboy{
+        display: block;
+        align-self: flex-end;
+        width: 160px;
+    }
+
+    .hero ._2 .small-text{
+        align-self: flex-end;
+    }
+}
+
+@media(min-width: 690px){
+    .hero{
+        height: calc(100vh - 100px);
+        flex-direction: row;
+        padding-top: 0;
     }
 
     .hero ._2{
         flex: 2;
-        padding: 0 10%;
-        justify-content: space-evenly;
     }
 
-    .hero ._2 .follow-us{
-        position: sticky;
+    .hero ._2 h1{
+        font-size: 3em;
     }
 }
 
-@media(max-width: 992px){
-    header{
-        padding: 0 5%;
+@media(min-width: 768px){
+    .hero{
+        height: calc(100vh - 100px);
     }
     
     .hero::before{
         background-size: 600px;
-        background-position: -100px 30px;
-    }
-
-    .hero ._2{
-        flex: 2;
-        padding-right: 6%;
+        background-position: -150px 80px;
     }
 }
 
-@media(max-width: 1200px){
-    header{
-        padding: 0 4%;
+@media(min-width: 1024px){
+    .hero::before{
+        background-size: 700px;
+        background-position: -100px 70px;
+    }
+
+    .hero ._1,
+    .hero ._2{
+        flex: 1;
     }
 
     .hero ._2{
-        /* flex: 2; */
-        padding-right: 4%;
+        padding-left: 4%;
+        padding-right: 10%;
+    }
+
+    .hero ._2 .large-text{
+        padding: 10px 0;
     }
 }
