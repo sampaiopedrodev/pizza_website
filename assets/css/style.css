@@ -113,7 +113,7 @@ header nav li a:hover{
     .hero
 *********************/
 .hero{
-    height: 600px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #E52818;
@@ -277,10 +277,6 @@ header nav li a:hover{
 }
 
 @media(min-width: 768px){
-    .hero{
-        height: calc(100vh - 100px);
-    }
-    
     .hero::before{
         background-size: 600px;
         background-position: -150px 80px;
